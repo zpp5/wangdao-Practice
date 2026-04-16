@@ -86,4 +86,4 @@ def predict(model: nn.Module, loader: DataLoader, device: torch.device) -> Tuple
             outputs = model(inputs).cpu().numpy()
             preds.append(outputs)
             trues.append(targets.numpy())
-    return np.concatenate(trues, axis=0), np.concatenate(preds, axis=0)
+    return np.concatenate(preds, axis=0), np.concatenate(trues, axis=0)

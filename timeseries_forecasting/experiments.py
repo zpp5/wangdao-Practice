@@ -147,8 +147,8 @@ def run_single_experiment(
     )
     model.load_state_dict(training_result.best_state)
 
-    val_true, val_pred = predict(model, loaders["val"], device)
-    test_true, test_pred = predict(model, loaders["test"], device)
+    val_pred, val_true = predict(model, loaders["val"], device)
+    test_pred, test_true = predict(model, loaders["test"], device)
 
     val_true_rescaled = inverse_scale_targets(val_true, scaler_params, config.target_cols)
     val_pred_rescaled = inverse_scale_targets(val_pred, scaler_params, config.target_cols)
